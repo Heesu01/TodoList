@@ -1,16 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 
-const TodoItem = () => {
+const TodoItem = ({ id, content, isDone, createdDate, onUpdate, onDelete }) => {
+  const onChangeCheckbox = () => {
+    onUpdate(id);
+  };
+  const onClickDelete = () => {
+    onDelete(id);
+  };
+
   return (
     <Container>
       <Box>
-        <CheckBox type="checkbox" />
+        <CheckBox
+          onChange={onChangeCheckbox}
+          checked={isDone}
+          type="checkbox"
+        />
       </Box>
-      <Title>할 일</Title>
-      <Day>{new Date().toLocaleDateString()}</Day>
+      <Title>{content}</Title>
+      <Day>{new Date(createdDate).toLocaleDateString()}</Day>
       <BtnBox>
-        <Btn>삭제</Btn>
+        <Btn onClick={onClickDelete}>삭제</Btn>
       </BtnBox>
     </Container>
   );
