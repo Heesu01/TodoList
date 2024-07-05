@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import TodoEditor from "./components/TodoEditor";
 import TodoList from "./components/TodoList";
-
+//커밋반영왜안되지
 const mockTodo = [
   {
     id: 0,
